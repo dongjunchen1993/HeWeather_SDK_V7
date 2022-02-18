@@ -1,5 +1,8 @@
 package com.heweather.api.response.weather;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Daily {
     private String fxDate; //预报日期; //2013-05-31
     private String sunrise; //日出时间; //07:34
@@ -27,6 +30,8 @@ public class Daily {
     private String vis; //预报当天能见度，默认单位：公里; //10
     private String cloud; //预报当天云量，百分比数值; //23
     private String uvIndex; //预报当天紫外线强度指数; //3
+    private String moonPhaseIcon;//月相图标代码，图标可通过天气状况和图标下载
+
 
     public String getFxDate() {
         return fxDate;
@@ -234,5 +239,13 @@ public class Daily {
 
     public void setUvIndex(String uvIndex) {
         this.uvIndex = uvIndex;
+    }
+
+    public String getMoonPhaseIcon() {
+        return moonPhaseIcon;
+    }
+
+    public void setMoonPhaseIcon(String moonPhaseIcon) {
+        this.moonPhaseIcon = moonPhaseIcon;
     }
 }
